@@ -2,11 +2,11 @@ namespace cmd;
 
 public class Stdout
 {
-    public static void Write(string path, List<string>  data)
+  public static void Write(string path, List<string>  data)
+  {
+    if (path != "")
     {
-        if (path != "")
-        {
-            File.WriteAllText(path, String.Join(Environment.NewLine, data));
-        }
+      File.WriteAllText(path, String.Join(Environment.NewLine, data));
     }
+  }
 }
