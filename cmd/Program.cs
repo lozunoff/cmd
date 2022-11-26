@@ -60,8 +60,12 @@ namespace cmd
 
                 if (commandLine != null)
                 {
-                    Regex commandRegex = new Regex(@"\s+");
-                    string[] command = commandRegex.Split(commandLine.Trim());
+                    Regex commandRegex = new Regex("(\"[^\"]+\"|[^\\s\"]+)");
+                    string[] command = commandRegex
+                        .Split(commandLine.Trim())
+                        .Where(item => !string.IsNullOrEmpty(item.Trim()))
+                        .Select(item => item.Replace("\"", ""))
+                        .ToArray();
 
                     string commandName = command[0].ToLower();
 
