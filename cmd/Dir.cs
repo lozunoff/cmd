@@ -107,7 +107,7 @@ namespace cmd
                     result.Add("");
                 }
 
-                bool isExistsFile = File.Exists(@target);
+                bool isExistsFile = File.Exists(target);
                 bool isExistsDirectory = Directory.Exists(target);
 
                 if (!isExistsFile && !isExistsDirectory)
